@@ -3,6 +3,7 @@ module Goraku
 
     attr_reader :api_endpoint, :login, :password
     attr_reader :connection_options, :middleware, :proxy
+    attr_reader :raise_error
     class << self
       def keys
         @keys || [
@@ -11,7 +12,8 @@ module Goraku
           :password,
           :connection_options,
           :middleware,
-          :proxy
+          :proxy,
+          :raise_error
         ]
       end
     end

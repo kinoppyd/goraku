@@ -67,7 +67,38 @@ module Goraku
     end
 
     def request(method, path, data, options = {})
-      agent.call(method, URI::Parser.new.escape("/api#{path.to_s}"), data, options).data
+      res = agent.call(method, URI::Parser.new.escape("/api#{path.to_s}"), data, options)
+      raise_error(res.status) if @raise_error
+      res.data
+    end
+
+    def raise_error(code)
+      case code
+      when 400
+        raise Status400.new
+      when 401
+        raise Status401.new
+      when 402
+        raise Status402.new
+      when 403
+        raise Status403.new
+      when 404
+        raise Status404.new
+      when 405
+        raise Status405.new
+      when 409
+        raise Status409.new
+      when 410
+        raise Status410.new
+      when 415
+        raise Status415.new
+      when 500
+        raise Status500.new
+      when 501
+        raise Status501.new
+      when 503
+        raise Status503.new
+      end
     end
 
     def sawyer_options
