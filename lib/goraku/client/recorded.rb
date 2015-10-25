@@ -14,8 +14,8 @@ module Goraku
         delete "/recorded/#{program_id}.json"
       end
 
-      def recorded_program_file(program_id)
-        get "/recorded/#{program_id}/file.json"
+      def recorded_program_file(program_id, format = 'json')
+        get "/recorded/#{program_id}/file.#{format}"
       end
 
       def recorded_program_preview(program_id, format = 'png', options = {})

@@ -3,6 +3,7 @@ require 'sawyer'
 require 'goraku/configurable'
 require 'goraku/authentication'
 
+require 'goraku/client/log'
 require 'goraku/client/program'
 require 'goraku/client/recorded'
 require 'goraku/client/recording'
@@ -10,6 +11,8 @@ require 'goraku/client/reserves'
 require 'goraku/client/rules'
 require 'goraku/client/schedule'
 require 'goraku/client/scheduler'
+require 'goraku/client/status'
+require 'goraku/client/storage'
 
 module Goraku
   class Client
@@ -17,6 +20,7 @@ module Goraku
     include Goraku::Configurable
     include Goraku::Authentication
 
+    include Goraku::Client::Log
     include Goraku::Client::Program
     include Goraku::Client::Recorded
     include Goraku::Client::Recording
@@ -24,6 +28,8 @@ module Goraku
     include Goraku::Client::Rules
     include Goraku::Client::Schedule
     include Goraku::Client::Scheduler
+    include Goraku::Client::Status
+    include Goraku::Client::Storage
 
     def initialize(options = {})
       Configurable.keys.each do |key|
