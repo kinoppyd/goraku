@@ -11,6 +11,7 @@ require 'goraku/client/rules'
 require 'goraku/client/schedule'
 require 'goraku/client/scheduler'
 require 'goraku/client/status'
+require 'goraku/client/storage'
 
 module Goraku
   class Client
@@ -26,6 +27,7 @@ module Goraku
     include Goraku::Client::Schedule
     include Goraku::Client::Scheduler
     include Goraku::Client::Status
+    include Goraku::Client::Storage
 
     def initialize(options = {})
       Configurable.keys.each do |key|
