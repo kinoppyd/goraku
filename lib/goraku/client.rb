@@ -3,6 +3,7 @@ require 'sawyer'
 require 'goraku/configurable'
 require 'goraku/authentication'
 
+require 'goraku/client/log'
 require 'goraku/client/program'
 require 'goraku/client/recorded'
 require 'goraku/client/recording'
@@ -19,6 +20,7 @@ module Goraku
     include Goraku::Configurable
     include Goraku::Authentication
 
+    include Goraku::Client::Log
     include Goraku::Client::Program
     include Goraku::Client::Recorded
     include Goraku::Client::Recording
