@@ -1,3 +1,11 @@
+# 0.2.0
+
+- Implements StatusAPI
+- Implements StorageAPI
+- Implements LogAPI
+- Add format param for RecordedProgramFileAPI
+- Add ReservedProgramActionAPI
+
 # 0.1.2
 
 Fix ScheduleChannelProgramsAPI endpoint
